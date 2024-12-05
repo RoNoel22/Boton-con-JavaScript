@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="stylo.css/stylo.css">
+</head>
+<button id="miBoton" class="boton-moderno">Cambia Color</button>
+<div id="infoInteraccion">
+    <p id="contadorClicks">Clicks: 0</p>
+    <p id="ultimoColor">Último Color: -</p>
+</div>
+
+<script>
+    // Variables para seguimiento
+    let contadorClicks = 0;
+    const colores = ['#FF6347', '#4682B4', '#32CD32', '#FFD700', '#8A2BE2'];
+    
+    // Seleccionar elementos
+    const boton = document.getElementById('miBoton');
+    const contadorElemento = document.getElementById('contadorClicks');
+    const ultimoColorElemento = document.getElementById('ultimoColor');
+
+    // Función para cambiar color aleatorio
+    function cambiarColorAleatorio() {
+        // Generar índice aleatorio para el array de colores
+        const indiceColor = Math.floor(Math.random() * colores.length);
+        const colorSeleccionado = colores[indiceColor];
+        
+        // Cambiar color del botón
+        boton.style.backgroundColor = colorSeleccionado;
+        
+        // Actualizar contador de clicks
+        contadorClicks++;
+        contadorElemento.textContent = `Clicks: ${contadorClicks}`;
+        
+        // Mostrar último color
+        ultimoColorElemento.textContent = `Último Color: ${colorSeleccionado}`;
+    }
+
+    // Añadir evento de clic
+    boton.addEventListener('click', cambiarColorAleatorio);
+</script>
+
+</body>
+</html>
